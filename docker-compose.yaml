@@ -1,0 +1,17 @@
+services:
+  laravel-app:
+    image: jkaninda/nginx-php-fpm:8.4
+    container_name: laravel
+    labels:
+      - "goma.enable=true"
+      - "goma.port=80"
+      - "goma.name=laravel"
+      - "goma.path=/laravel"
+      - "goma.rewrite=/" 
+      # - "goma.methods="
+      - "goma.middlewares= basic-auth, error-interceptor-ui,error-interceptor"
+    restart: always
+    user: www-data # Optional for production
+    volumes:
+      # Project root
+      - ./src:/var/www/html
