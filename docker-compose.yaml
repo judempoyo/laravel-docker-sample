@@ -12,6 +12,4 @@ services:
       - "goma.middlewares= basic-auth, error-interceptor-ui,error-interceptor"
     restart: always
     user: www-data # Optional for production
-    volumes:
-      # Project root
-      - ./src:/var/www/html
+
